@@ -6,9 +6,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Properties;
 
 public class Util {
@@ -16,15 +13,6 @@ public class Util {
     private static final String USER = "root";
     private static final String PASS = "root";
 
-    public static Connection getConnection() {
-        Connection conn = null;
-        try {
-            conn = DriverManager.getConnection(URL, USER, PASS);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return conn;
-    }
     public static SessionFactory getSessionFactory() {
         Properties properties = new Properties();
         properties.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
