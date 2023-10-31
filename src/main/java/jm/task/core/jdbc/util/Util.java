@@ -12,6 +12,7 @@ public class Util {
     public static Connection getConnection() {
         Connection conn = null;
         try {
+
             conn = DriverManager.getConnection(URL, USER, PASS);
         } catch (SQLException e) {
             e.printStackTrace();
