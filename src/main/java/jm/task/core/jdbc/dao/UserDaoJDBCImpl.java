@@ -13,26 +13,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public UserDaoJDBCImpl() {
     }
-    @Override
-    public void createProcedure() {
-        try (Statement statement = connection.createStatement()) {
-            statement.execute("""
-DELIMITER //
-CREATE PROCEDURE InsertData(
-IN user_name VARCHAR(40),
-IN last_name VARCHAR(40),
-IN user_age TINYINT
-)
-BEGIN
-INSERT INTO users (name, lastName, age)
-VALUES (user_name, last_name, user_age);
-END //
-DELIMITER ;
-                    """);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+
 
     @Override
     public void createUsersTable() {
